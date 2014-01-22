@@ -1,1 +1,235 @@
-Work in progress.
+<h1>
+<a name="starbound-packets" class="anchor" href="#starbound-packets"><span class="octicon octicon-link"></span></a>Starbound packets</h1>
+
+<p><strong>All numbers are big-endian!</strong></p>
+
+<h2>
+<a name="base-packet" class="anchor" href="#base-packet"><span class="octicon octicon-link"></span></a>Base packet</h2>
+
+<p>The structure of the base packet is as follows:</p>
+
+<table>
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Byte</td>
+<td>The packet type, described later.</td>
+</tr>
+<tr>
+<td>Payload size</td>
+<td>Signed VLQ</td>
+<td>The total size in bytes of the rest of the packet.</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>Variable (described later)</td>
+<td>The actual useful data.</td>
+</tr>
+</tbody>
+</table><p>The ID lies between 1 and 48. The following is a list of the packet IDs and the type of packet it represents.</p>
+
+<table>
+<thead><tr>
+<th>ID</th>
+<th>Name</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Protocol Version</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Connect Response</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Server Disconnect</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Handshake Challenge</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Chat Received</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Universe Time Update</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Client Connect</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Client Disconnect</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Handshake Response</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Warp Command</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Chat Sent</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Client Context Update</td>
+</tr>
+<tr>
+<td>13</td>
+<td>World Start</td>
+</tr>
+<tr>
+<td>14</td>
+<td>World Stop</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Tile Array Update</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Tile Update</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Tile Liquid Update</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Tile Damage Update</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Tile Modification Failure</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Give Item</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Unknown, infrequently if ever encountered.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Swap in Container Result</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Environment Update</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Entity Interact Result</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Modify Tile List</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Damage Tile</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Damage Tile Group</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Request Drop</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Spawn Entity</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Entity Interact</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Connect Wire</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Disconnect All Wires</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Open Container</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Close Container</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Swap in Container</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Item Apply in Container</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Start Crafting in Container</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Stop Crafting in Container</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Burn Container</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Clear Container</td>
+</tr>
+<tr>
+<td>41</td>
+<td>World Update</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Entity Create</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Entity Update</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Entity Destroy</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Damage Notification</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Status Effect Request</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Update World Properties</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Heartbeat</td>
+</tr>
+</tbody>
+</table>
